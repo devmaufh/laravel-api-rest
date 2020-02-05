@@ -12,6 +12,8 @@ class User extends Authenticatable
     const USUARIO_NO_VERIFICADO = '0';
     const USUARIO_REGULAR = 'false';
     const USUARIO_ADMINISTRADOR = 'true';
+    protected $table = 'users';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -26,7 +28,19 @@ class User extends Authenticatable
         'admin',
     ];
 
-    protected $table = 'users';
+    public function setNameAttribute($name){
+        $this->attributes['name'] = strtolower($name);
+    }
+
+    public function getNameAttribute($name){
+        return ucwords($name);
+        
+    }
+
+    public function setEmailAttribute($email){
+        $this->attributes['email'] = strtolower($email);
+    }
+
 
     /**
      * The attributes that should be hidden for arrays.
