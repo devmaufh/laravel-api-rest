@@ -16,9 +16,7 @@ class BuyerController extends Controller
     public function index()
     {
         $compradores = Buyer::has('transactions')->get();
-        
         return response()->json(['data' => $compradores],200);
-
     }
 
     /**
