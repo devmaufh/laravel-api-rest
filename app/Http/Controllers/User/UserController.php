@@ -64,9 +64,8 @@ class UserController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $user = User::findOrFail($id);
         return $this->showOne($user);
     }
 
@@ -88,9 +87,8 @@ class UserController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        $user = User::findOrFail($id);
         $rules = [
             'email' => 'email|unique:users,email,' . $user->id,
             'password' => 'confirmed|min:6',
