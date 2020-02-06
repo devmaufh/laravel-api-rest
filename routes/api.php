@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::resource('buyers', 'Buyer\BuyerController',['only'=>['index','show']]);
 
 /**Routes for categories */
-Route::resource('categories', 'Category\CategoryController',['except'=>['index','show']]);
+Route::resource('categories', 'Category\CategoryController',['except'=>['create','edit']]);
 
 //**Routes for Products */
 Route::resource('products', 'Product\ProductController',['only'=>['index','show']]);
