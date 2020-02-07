@@ -17,7 +17,7 @@ trait ApiResponser{
         return $this->successResponse(['data' =>$instance], $code);
     }
     protected function showAll(Collection $collection, $code = 200){
-        return $this->successResponse($collection,$code);
+        return $this->successResponse(['data' => $collection],$code);
     }
 }
 
